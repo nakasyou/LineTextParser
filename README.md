@@ -1,12 +1,8 @@
-# LineTextParser
+# LineTextParser V2.0.1
 LINEの、トーク履歴を書き出したtxtファイルを解析します
 ## 導入
 ~~~bash
 pip install LineTextParser
-~~~
-または
-~~~bash
-py -m pip install LineTextParser
 ~~~
 ## 使い方
 ### import
@@ -29,7 +25,7 @@ talk.txt:
 ```python
 with open("talk.txt","r",encoding="utf-8") as f:
     #lordクラスのインスタンスtalkを作成
-    talk = ltp.lord(f.read())
+    talk = ltp.Linetxt(f.read())
 ```
 ### 読み取り
 読み取りには、メソッド```search```を使用します。返り値は、speechクラスのインスタンスです。
@@ -55,7 +51,11 @@ print(talk.search(
 speechクラスから要素を取り出せます。
 ~~~python
 speech=talk.search(getDate=((2022,10,13,00,00),(2022,10,14,00,00)),)[0]
-speech.y#年
-speech.M#月
+print(speech)
+#>> speech(y=2022,M=10,d=13,day=木曜日,h=0,m=0,user=taro,seq=おはよう)
+speech.date #yMdのタプル
+speech.hms #hmsのタプル
+speech.username #Usarnameをstrで返す
+speech.seq #なにを言ったかをstrで返す
 ...
 ~~~
