@@ -4,6 +4,10 @@ LINEの、トーク履歴を書き出したtxtファイルを解析します
 ~~~bash
 pip install LineTextParser
 ~~~
+または
+~~~bash
+py -m pip install LineTextParser
+~~~
 ## 使い方
 ### import
 ~~~python
